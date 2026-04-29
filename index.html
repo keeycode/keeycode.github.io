@@ -18,6 +18,7 @@
             --primary-dark: #2563eb;
             --dark-bg: #0f172a;
             --dark-card: #1e293b;
+            --text-bright: #e2e8f0;
             --text-muted: #94a3b8;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
@@ -80,10 +81,11 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            color: #ffffff;
         }
 
         .hero p {
-            color: var(--text-muted);
+            color: var(--text-bright);
             font-size: 1.2rem;
             max-width: 600px;
         }
@@ -131,6 +133,25 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Nosotros - CEO Cards */
+        .ceo-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .ceo-card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .ceo-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
         /* Pricing */
         .pricing-card {
             background: white;
@@ -170,15 +191,26 @@
             z-index: 10;
         }
 
-        .form-control {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
+        .form-control, .form-select {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white !important;
             padding: 12px;
+            color-scheme: dark; /* Mejora la visibilidad del dropdown nativo */
+        }
+
+        .form-select option {
+            background-color: #1e293b;
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: #cbd5e1 !important;
+            opacity: 1;
         }
 
         .form-control:focus {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.15);
             border-color: var(--primary);
             color: white;
             box-shadow: none;
@@ -188,7 +220,15 @@
         footer {
             background: #0f172a;
             padding: 180px 0 60px;
-            color: #94a3b8;
+            color: #cbd5e1;
+        }
+
+        footer h3, footer h6 {
+            color: #ffffff;
+        }
+
+        footer .text-muted {
+            color: #94a3b8 !important;
         }
 
         /* Animation */
@@ -221,8 +261,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
                     <li class="nav-item ms-lg-3">
                         <a class="btn btn-primary btn-sm" href="#contacto">Solicitar Demo</a>
                     </li>
@@ -243,9 +283,9 @@
                         <a href="#contacto" class="btn btn-primary">Empezar ahora</a>
                         <a href="#servicios" class="btn btn-outline-light">Ver servicios</a>
                     </div>
-                    <div class="mt-5 d-flex align-items-center gap-4 text-muted">
-                        <div><i class="fa-solid fa-shield-check"></i> Seguridad Bancaria</div>
-                        <div><i class="fa-solid fa-bolt"></i> Despliegue Rápido</div>
+                    <div class="mt-5 d-flex align-items-center gap-4 text-white-50">
+                        <div><i class="fa-solid fa-shield-check text-primary"></i> Seguridad Bancaria</div>
+                        <div><i class="fa-solid fa-bolt text-primary"></i> Despliegue Rápido</div>
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block animate-fade" style="animation-delay: 0.2s;">
@@ -253,7 +293,7 @@
                         <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&w=800&q=80" alt="Dashboard Keeycode" class="img-fluid rounded-4 shadow-2xl">
                         <!-- Floating Card Mockup -->
                         <div class="position-absolute bg-white p-3 rounded-3 shadow-lg" style="bottom: -20px; left: -20px; width: 200px;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
+                            <div class="d-flex align-items-center gap-2 mb-2 text-dark">
                                 <div class="bg-success rounded-circle" style="width: 10px; height: 10px;"></div>
                                 <small class="fw-bold">Sistema Activo</small>
                             </div>
@@ -294,6 +334,47 @@
                         <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
                         <h4>API First</h4>
                         <p class="text-muted">Desarrollamos pensando en la conectividad. Integra tus herramientas favoritas fácilmente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros Section - Updated to CEO Cards -->
+    <section id="nosotros" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase mb-2 d-block">Liderazgo</span>
+                <h2 class="fw-bold display-5">Conoce a nuestros fundadores</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">El equipo detrás de Keeycode combina décadas de experiencia en ingeniería de software y visión de negocio.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5 col-lg-4">
+                    <div class="ceo-card">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="CEO 1" class="ceo-img">
+                        <div class="p-4 text-center">
+                            <h4 class="fw-bold mb-1">Fundador 1</h4>
+                            <p class="text-primary fw-600 mb-3">CEO & Co-Founder</p>
+                            <p class="text-muted small">Especialista en arquitectura escalable y visión estratégica de productos SaaS.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#" class="text-muted"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="ceo-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="CEO 2" class="ceo-img">
+                        <div class="p-4 text-center">
+                            <h4 class="fw-bold mb-1">Fundador 2</h4>
+                            <p class="text-primary fw-600 mb-3">CEO & Co-Founder</p>
+                            <p class="text-muted small">Experta en optimización de procesos operativos y crecimiento de ecosistemas digitales.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#" class="text-muted"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,7 +450,7 @@
                     <p class="text-light text-opacity-75 mb-4">Nuestro equipo técnico está listo para analizar tus requerimientos y ofrecerte la mejor solución SaaS.</p>
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <div class="bg-primary bg-opacity-25 p-3 rounded-circle"><i class="fa-solid fa-envelope"></i></div>
-                        <div>info@keeycode.com</div>
+                        <div class="text-white">keeeycode@gmail.com</div>
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -382,10 +463,10 @@
                         </div>
                         <div class="col-12">
                             <select class="form-select form-control">
-                                <option selected>Interesado en...</option>
-                                <option>Desarrollo SaaS</option>
-                                <option>Consultoría Cloud</option>
-                                <option>Integración de Sistemas</option>
+                                <option selected disabled value="">Interesado en...</option>
+                                <option value="saas">Desarrollo SaaS</option>
+                                <option value="cloud">Consultoría Cloud</option>
+                                <option value="integration">Integración de Sistemas</option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -405,16 +486,16 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4">
-                    <h3 class="text-white fw-bold mb-4">KEEYCODE</h3>
+                    <h3 class="fw-bold mb-4">KEEYCODE</h3>
                     <p>Liderando la transformación digital a través de software de alto rendimiento y soluciones escalables en la nube.</p>
                     <div class="d-flex gap-3 fs-5 mt-4">
-                        <a href="#" class="text-light"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="text-light"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="text-light"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Producto</h6>
+                    <h6 class="fw-bold mb-4">Producto</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Funciones</a></li>
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Seguridad</a></li>
@@ -422,15 +503,15 @@
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Empresa</h6>
+                    <h6 class="fw-bold mb-4">Empresa</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Sobre nosotros</a></li>
+                        <li class="mb-2"><a href="#nosotros" class="text-decoration-none text-muted">Sobre nosotros</a></li>
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Carreras</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contacto</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-decoration-none text-muted">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Legal</h6>
+                    <h6 class="fw-bold mb-4">Legal</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Privacidad</a></li>
                         <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Términos</a></li>
@@ -440,7 +521,7 @@
             </div>
             <hr class="my-5 border-secondary">
             <div class="text-center text-muted">
-                <small>&copy; 2026 Keeycode. Todos los derechos reservados.</small>
+                <small>&copy; 2026 Keeycode. Todos los derechos reservados. <br> Contacto: keeeycode@gmail.com</small>
             </div>
         </div>
     </footer>
@@ -454,7 +535,7 @@
             const nav = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 nav.style.padding = '0.5rem 0';
-                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
             } else {
                 nav.style.padding = '1rem 0';
                 nav.style.background = 'rgba(15, 23, 42, 0.9)';
@@ -465,9 +546,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
