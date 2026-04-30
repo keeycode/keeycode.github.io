@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keeycode | Sistemas SaaS y Soluciones de Software</title>
+    <title>Keeycode | Impulso Digital Inteligente</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,7 @@
             --primary-dark: #2563eb;
             --dark-bg: #0f172a;
             --dark-card: #1e293b;
+            --text-bright: #e2e8f0;
             --text-muted: #94a3b8;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
@@ -32,24 +33,30 @@
 
         /* Navbar */
         .navbar {
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             transition: all 0.3s ease;
         }
 
         .navbar-brand {
             font-weight: 800;
-            letter-spacing: -1px;
-            font-size: 1.5rem;
             color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            filter: brightness(0) invert(1);
         }
 
         .nav-link {
             color: #cbd5e1 !important;
             font-weight: 500;
-            margin: 0 10px;
+            margin: 0 12px;
             transition: color 0.3s;
         }
 
@@ -60,7 +67,7 @@
         /* Hero Section */
         .hero {
             background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            padding: 160px 0 100px;
+            padding: 160px 0 120px;
             color: white;
             position: relative;
         }
@@ -77,135 +84,197 @@
 
         .hero h1 {
             font-weight: 800;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 600px;
+            color: var(--text-bright);
+            font-size: 1.25rem;
+            max-width: 700px;
+            line-height: 1.6;
         }
 
         .btn-primary {
             background-color: var(--primary);
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.2rem;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: all 0.3s;
         }
 
         .btn-primary:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
         }
 
-        /* Features */
-        .feature-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 40px;
-            height: 100%;
-            transition: all 0.3s ease;
+        .btn-outline-light {
+            border-radius: 12px;
+            padding: 1rem 2.2rem;
+            font-weight: 600;
+            border-width: 2px;
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #eff6ff;
-            color: var(--primary);
+        /* Trust Indicators */
+        .trust-badge {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-size: 1.5rem;
+            gap: 10px;
+        }
+
+        /* Solution Cards */
+        .solution-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+            border-color: var(--primary);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 1.5rem;
         }
 
-        /* Pricing */
-        .pricing-card {
+        /* CEO / Founders */
+        .ceo-card {
             background: white;
             border-radius: 24px;
-            padding: 40px;
-            border: 1px solid #e2e8f0;
-            position: relative;
             overflow: hidden;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .ceo-card:hover {
+            border-color: var(--primary);
         }
 
-        .pricing-card.popular {
+        .ceo-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        /* Transformación Digital Cards */
+        .transform-card {
+            background: white;
+            border-radius: 28px;
+            padding: 45px;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .transform-card.featured {
             border: 2px solid var(--primary);
-            transform: scale(1.05);
-            z-index: 2;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+            background: linear-gradient(to bottom, #ffffff, #f0f7ff);
         }
 
-        .badge-popular {
-            background: var(--primary);
-            color: white;
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            transform: rotate(45deg);
-            padding: 5px 40px;
-            font-size: 0.8rem;
-            font-weight: 700;
+        .transform-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
         }
 
-        /* Contact Section */
+        /* Why Us Section */
+        .why-us-card {
+            background: #eff6ff;
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid #dbeafe;
+            height: 100%;
+            transition: 0.3s;
+        }
+        
+        .why-us-card:hover {
+            background: #e0eeff;
+        }
+
+        /* Contact Section Fixes */
         .contact-section {
-            background: #1e293b;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
-            border-radius: 30px;
-            padding: 60px;
+            border-radius: 40px;
+            padding: 80px 60px;
             margin-bottom: -100px;
             position: relative;
             z-index: 10;
         }
 
-        .form-control {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            padding: 12px;
+        .form-label-custom {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 5px;
         }
 
-        .form-control:focus {
-            background: rgba(255,255,255,0.08);
-            border-color: var(--primary);
+        .form-control, .form-select {
+            background: rgba(255,255,255,0.08) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            color: white !important;
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        /* FIX: Select Arrow Issue */
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+            background-repeat: no-repeat !important;
+            background-position: right 1rem center !important;
+            background-size: 16px 12px !important;
+            padding-right: 3rem;
+        }
+
+        .form-select option {
+            background-color: #1e293b;
             color: white;
-            box-shadow: none;
+        }
+
+        .form-control::placeholder {
+            color: rgba(148, 163, 184, 0.8) !important;
         }
 
         /* Footer */
         footer {
             background: #0f172a;
-            padding: 180px 0 60px;
+            padding: 200px 0 60px;
             color: #94a3b8;
         }
 
-        /* Animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade {
-            animation: fadeInUp 0.8s ease forwards;
-        }
+        footer h5 { color: white; margin-bottom: 1.5rem; }
+        footer a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--primary); }
 
         @media (max-width: 768px) {
-            .hero { padding: 120px 0 80px; text-align: center; }
+            .contact-section { padding: 40px 20px; border-radius: 20px; }
+            .hero { text-align: center; }
             .hero p { margin: 0 auto 2rem; }
-            .pricing-card.popular { transform: none; margin: 20px 0; }
-            .contact-section { padding: 30px; margin-bottom: -50px; border-radius: 20px; }
+            .hero .d-flex { justify-content: center; }
         }
     </style>
 </head>
@@ -214,17 +283,20 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">KEEYCODE</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo_horizontal_blanco.png" alt="logo" class="img-fluid" width="100%">
+            </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#soluciones">Soluciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a class="btn btn-primary btn-sm" href="#contacto">Solicitar Demo</a>
+                        <a class="btn btn-primary btn-sm px-4" href="#contacto">Solicitar asesoría</a>
                     </li>
                 </ul>
             </div>
@@ -235,164 +307,256 @@
     <section class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 animate-fade">
-                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2">Nuevo: Keeycode V2.0 disponible</span>
-                    <h1>Desarrollamos soluciones digitales que hacen crecer tu negocio</h1>
-                    <p class="mb-4">En Keeycode creamos sistemas web, plataformas SaaS y herramientas digitales a la medida para automatizar procesos, mejorar la operación y llevar tu empresa al siguiente nivel.</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="#contacto" class="btn btn-primary">Empezar ahora</a>
-                        <a href="#servicios" class="btn btn-outline-light">Ver servicios</a>
+                <div class="col-lg-7 animate-fade">
+                    <h1>Crea tu negocio digital</h1>
+                    <p class="mb-5">En Keeycode desarrollamos sitios web, sistemas, apps y herramientas digitales que ayudan a emprendedores y MIPYMES a vender más, ordenar sus procesos y llegar a más clientes.</p>
+                    <div class="d-flex gap-3 flex-wrap mb-5">
+                        <a href="#contacto" class="btn btn-primary">Solicitar asesoría gratuita</a>
+                        <a href="#soluciones" class="btn btn-outline-light">Ver soluciones</a>
                     </div>
-                    <div class="mt-5 d-flex align-items-center gap-4 text-muted">
-                        <div><i class="fa-solid fa-shield-check"></i> Seguridad Bancaria</div>
-                        <div><i class="fa-solid fa-bolt"></i> Despliegue Rápido</div>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <div class="trust-badge"><i class="fa-solid fa-user-check text-primary"></i> Atención personalizada</div>
+                        <div class="trust-badge"><i class="fa-solid fa-route text-primary"></i> Acompañamiento paso a paso</div>
+                        <div class="trust-badge"><i class="fa-solid fa-arrow-up-right-dots text-primary"></i> Soluciones escalables</div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block animate-fade" style="animation-delay: 0.2s;">
-                    <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&w=800&q=80" alt="Dashboard Keeycode" class="img-fluid rounded-4 shadow-2xl">
-                        <!-- Floating Card Mockup -->
-                        <div class="position-absolute bg-white p-3 rounded-3 shadow-lg" style="bottom: -20px; left: -20px; width: 200px;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="bg-success rounded-circle" style="width: 10px; height: 10px;"></div>
-                                <small class="fw-bold">Sistema Activo</small>
-                            </div>
-                            <div class="progress" style="height: 6px;">
-                                <div class="progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="p-4 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-10">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="SaaS Dashboard" class="img-fluid rounded-3 shadow-lg">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="servicios" class="py-5">
+    <!-- Soluciones Section -->
+    <section id="soluciones" class="py-5 bg-white">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bold display-5">Soluciones a tu medida</h2>
-                <p class="text-muted">Diseñadas para la era digital moderna.</p>
+                <span class="text-primary fw-bold text-uppercase tracking-wider">¿Qué hacemos?</span>
+                <h2 class="fw-bold display-5 mt-2">Nuestras Soluciones</h2>
+                <p class="text-muted mx-auto" style="max-width: 700px;">Creamos herramientas digitales pensadas para negocios que quieren crecer, vender mejor y optimizar su operación.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-cloud"></i></div>
-                        <h4>Arquitectura Cloud</h4>
-                        <p class="text-muted">Sistemas distribuidos de alta disponibilidad que crecen con tu demanda sin interrupciones.</p>
+                    <div class="solution-card text-center">
+                        <div class="solution-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h4 class="fw-bold">Sitios web y landing pages</h4>
+                        <p class="text-muted">Creamos páginas modernas, rápidas y adaptadas a tu marca para que tus clientes conozcan tus productos, servicios y puedan contactarte fácilmente.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
-                        <h4>Automatización IA</h4>
-                        <p class="text-muted">Integramos inteligencia artificial para optimizar tareas repetitivas y análisis de datos.</p>
+                    <div class="solution-card text-center">
+                        <div class="solution-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h4 class="fw-bold">Sistemas web y automatización</h4>
+                        <p class="text-muted">Desarrollamos sistemas internos, formularios, paneles administrativos y flujos digitales para reducir tareas manuales y mejorar la organización de tu negocio.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fa-solid fa-code"></i></div>
-                        <h4>API First</h4>
-                        <p class="text-muted">Desarrollamos pensando en la conectividad. Integra tus herramientas favoritas fácilmente.</p>
+                    <div class="solution-card text-center">
+                        <div class="solution-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h4 class="fw-bold">Apps y e-commerce</h4>
+                        <p class="text-muted">Creamos aplicaciones móviles, tiendas en línea, dashboards, APIs y plataformas digitales que pueden crecer junto con tu empresa.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="precios" class="py-5 bg-light">
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="py-5 bg-light">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bold display-5">Planes Flexibles</h2>
-                <p class="text-muted">Escoge el plan que mejor se adapte a tu etapa actual.</p>
+                <h2 class="fw-bold display-5">Conoce a quienes están detrás de Keeycode</h2>
+                <p class="text-muted mx-auto mt-3" style="max-width: 850px;">Somos dos programadores salvadoreños con experiencia en desarrollo web, sistemas internos y soluciones digitales para áreas educativas, administrativas y financieras. Creamos Keeycode para acercar la tecnología a negocios que quieren crecer.</p>
             </div>
-            <div class="row g-4 justify-content-center align-items-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card">
-                        <h3>Startup</h3>
-                        <div class="d-flex align-items-end mb-4">
-                            <span class="display-4 fw-bold">$49</span>
-                            <span class="text-muted mb-2 ms-2">/mes</span>
+            <div class="row g-4 justify-content-center">
+                <!-- René Guevara -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="ceo-card">
+                        <img src="/assets/img/rene_img.jpeg" alt="René Guevara" class="ceo-img">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-1">René Guevara</h4>
+                            <p class="text-primary fw-600 mb-3">Co-Fundador / Full Stack Developer</p>
+                            <p class="text-muted small">Programador web y full stack desde 2021, con experiencia en desarrollo de sistemas, módulos operativos y soluciones digitales enfocadas en optimizar procesos. Actualmente trabaja con enfoque en monitoreo y mejora de plataformas.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="text-muted"><i class="fa-brands fa-linkedin fs-5"></i></a>
+                                <a href="#" class="text-muted"><i class="fa-brands fa-github fs-5"></i></a>
+                            </div>
                         </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Hasta 5 usuarios</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> 10GB Almacenamiento</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Soporte por Email</li>
-                            <li class="mb-3 text-muted"><i class="fa-solid fa-xmark me-2"></i> API Avanzada</li>
-                        </ul>
-                        <button class="btn btn-outline-primary w-100 py-3">Elegir Plan</button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card popular">
-                        <div class="badge-popular">RECOMENDADO</div>
-                        <h3>Business</h3>
-                        <div class="d-flex align-items-end mb-4">
-                            <span class="display-4 fw-bold">$99</span>
-                            <span class="text-muted mb-2 ms-2">/mes</span>
+                <!-- Josué Vásquez -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="ceo-card">
+                        <img src="/assets/img/josue_img.png" alt="Josué Vásquez" class="ceo-img">
+                        <div class="p-4">
+                            <h4 class="fw-bold mb-1">Josué Vásquez</h4>
+                            <p class="text-primary fw-600 mb-3">Co-Fundador / Desarrollador de Sistemas</p>
+                            <p class="text-muted small">Programador con experiencia en desarrollo y mantenimiento de sistemas. Actualmente liderando áreas de Desarrollo y Mantenimiento de Sistemas, participando en soluciones para áreas educativas, administrativas y financieras.</p>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="text-muted"><i class="fa-brands fa-linkedin fs-5"></i></a>
+                                <a href="#" class="text-muted"><i class="fa-brands fa-github fs-5"></i></a>
+                            </div>
                         </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Usuarios Ilimitados</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> 100GB Almacenamiento</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Soporte 24/7</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Integración API</li>
-                        </ul>
-                        <button class="btn btn-primary w-100 py-3">Elegir Plan</button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card">
-                        <h3>Enterprise</h3>
-                        <div class="d-flex align-items-end mb-4">
-                            <span class="display-4 fw-bold">Custom</span>
-                        </div>
-                        <p class="text-muted">Para grandes organizaciones con necesidades específicas de seguridad y escala.</p>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Infraestructura Dedicada</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> SLA Personalizado</li>
-                            <li class="mb-3"><i class="fa-solid fa-check text-success me-2"></i> Onboarding VIP</li>
-                        </ul>
-                        <button class="btn btn-outline-primary w-100 py-3">Contactar Ventas</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <div class="container" id="contacto">
+    <!-- Transformación Digital Section -->
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5">Elige cómo quieres iniciar tu transformación digital</h2>
+                <p class="text-muted mt-3">Cada proyecto se cotiza según sus requerimientos, alcance y objetivos. Te acompañamos desde la idea inicial hasta la implementación.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="transform-card">
+                        <h4 class="fw-bold mb-3">Presencia Digital</h4>
+                        <p class="text-muted mb-4 small">Ideal para emprendedores y negocios que quieren comenzar a mostrarse profesionalmente en internet.</p>
+                        <ul class="list-unstyled transform-list mb-auto">
+                            <li><i class="fa-solid fa-check text-success"></i> Landing pages</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Sitios web informativos</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Diseño visual adaptado</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Dominio y configuración</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Formularios de contacto</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-outline-primary w-100 mt-4 py-3">Quiero iniciar</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="transform-card featured">
+                        <h4 class="fw-bold mb-3">Gestión y Automatización</h4>
+                        <p class="text-muted mb-4 small">Para negocios que necesitan ordenar procesos, reducir tareas manuales y administrar mejor su información.</p>
+                        <ul class="list-unstyled transform-list mb-auto">
+                            <li><i class="fa-solid fa-check text-primary"></i> Sistemas web personalizados</li>
+                            <li><i class="fa-solid fa-check text-primary"></i> Paneles administrativos</li>
+                            <li><i class="fa-solid fa-check text-primary"></i> Automatización de procesos</li>
+                            <li><i class="fa-solid fa-check text-primary"></i> Dashboards y reportes</li>
+                            <li><i class="fa-solid fa-check text-primary"></i> Mantenimiento y soporte</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary w-100 mt-4 py-3">Digitalizar mi negocio</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="transform-card">
+                        <h4 class="fw-bold mb-3">Soluciones Escalables</h4>
+                        <p class="text-muted mb-4 small">Para empresas o emprendedores que quieren crear una plataforma más completa o un producto digital.</p>
+                        <ul class="list-unstyled transform-list mb-auto">
+                            <li><i class="fa-solid fa-check text-success"></i> Aplicaciones móviles</li>
+                            <li><i class="fa-solid fa-check text-success"></i> E-commerce</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Plataformas SaaS</li>
+                            <li><i class="fa-solid fa-check text-success"></i> APIs e integraciones</li>
+                            <li><i class="fa-solid fa-check text-success"></i> Soporte evolutivo</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-outline-primary w-100 mt-4 py-3">Crear mi solución</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confianza Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5">¿Por qué trabajar con Keeycode?</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="why-us-card">
+                        <h5 class="fw-bold text-primary mb-3">Hablamos tu mismo idioma</h5>
+                        <p class="mb-0 text-muted">Te explicamos cada etapa del proyecto de forma clara, sin complicarte con tecnicismos innecesarios.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="why-us-card">
+                        <h5 class="fw-bold text-primary mb-3">Acompañamiento personalizado</h5>
+                        <p class="mb-0 text-muted">No solo desarrollamos: analizamos tu necesidad, proponemos soluciones y te guiamos durante el proceso.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="why-us-card">
+                        <h5 class="fw-bold text-primary mb-3">Pensamos en tu crecimiento</h5>
+                        <p class="mb-0 text-muted">Creamos soluciones que pueden iniciar simples y evolucionar conforme tu negocio crece.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="why-us-card">
+                        <h5 class="fw-bold text-primary mb-3">Experiencia en procesos reales</h5>
+                        <p class="mb-0 text-muted">Hemos trabajado en módulos y sistemas para áreas educativas, administrativas y financieras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <div class="container py-5" id="contacto">
         <div class="contact-section">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0">
-                    <h2 class="fw-bold mb-4">¿Hablamos de tu próximo gran proyecto?</h2>
-                    <p class="text-light text-opacity-75 mb-4">Nuestro equipo técnico está listo para analizar tus requerimientos y ofrecerte la mejor solución SaaS.</p>
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="bg-primary bg-opacity-25 p-3 rounded-circle"><i class="fa-solid fa-envelope"></i></div>
-                        <div>info@keeycode.com</div>
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Cuéntanos qué quieres mejorar en tu negocio</h2>
+                    <p class="text-white text-opacity-75 mb-5">Agenda una asesoría gratuita con nuestro equipo. Revisamos tu idea, proceso o necesidad digital y te orientamos sobre la mejor forma de convertirla en una solución funcional.</p>
+                    <div class="d-flex flex-column gap-4">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-primary p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                                <i class="fa-solid fa-envelope fs-5"></i>
+                            </div>
+                            <span class="fw-500">keeeycode@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-success p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px;">
+                                <i class="fa-brands fa-whatsapp fs-5"></i>
+                            </div>
+                            <span class="fw-500">Consultas por WhatsApp</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Nombre completo">
+                            <label class="form-label-custom">Nombre completo</label>
+                            <input type="text" class="form-control" placeholder="Tu nombre">
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Correo corporativo">
+                            <label class="form-label-custom">Nombre del negocio</label>
+                            <input type="text" class="form-control" placeholder="Nombre de tu empresa">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Correo electrónico</label>
+                            <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">WhatsApp</label>
+                            <input type="tel" class="form-control" placeholder="+503 0000 0000">
                         </div>
                         <div class="col-12">
-                            <select class="form-select form-control">
-                                <option selected>Interesado en...</option>
-                                <option>Desarrollo SaaS</option>
-                                <option>Consultoría Cloud</option>
-                                <option>Integración de Sistemas</option>
+                            <label class="form-label-custom">¿Qué necesitas desarrollar?</label>
+                            <select class="form-select">
+                                <option selected disabled value="">Selecciona una opción</option>
+                                <option>Página web o landing page</option>
+                                <option>Sistema web</option>
+                                <option>Tienda en línea</option>
+                                <option>App móvil</option>
+                                <option>Automatización de procesos</option>
+                                <option>Dashboard o reportes</option>
+                                <option>Mantenimiento o soporte</option>
+                                <option>No estoy seguro, necesito asesoría</option>
                             </select>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" rows="4" placeholder="Cuéntanos un poco sobre tu idea"></textarea>
+                            <label class="form-label-custom">Cuéntanos brevemente tu idea</label>
+                            <textarea class="form-control" rows="3" placeholder="Descripción de tu proyecto..."></textarea>
                         </div>
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary w-100 py-3">Enviar Mensaje</button>
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Solicitar asesoría gratuita</button>
                         </div>
                     </form>
                 </div>
@@ -403,44 +567,47 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-4">
-                    <h3 class="text-white fw-bold mb-4">KEEYCODE</h3>
-                    <p>Liderando la transformación digital a través de software de alto rendimiento y soluciones escalables en la nube.</p>
-                    <div class="d-flex gap-3 fs-5 mt-4">
-                        <a href="#" class="text-light"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="text-light"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="text-light"><i class="fa-brands fa-github"></i></a>
+            <div class="row gy-5">
+                <div class="col-lg-5 pe-lg-5">
+                    <h3 class="fw-bold mb-4">KEEYCODE</h3>
+                    <p>Desarrollo y soluciones digitales para emprendedores, MIPYMES y negocios que quieren crecer con tecnología simple, moderna y escalable.</p>
+                    <div class="d-flex gap-4 fs-4 mt-4">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 offset-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Producto</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Funciones</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Seguridad</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Lanzamientos</a></li>
+                <div class="col-lg-2 col-6">
+                    <h5>Soluciones</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="#">Sitios web</a></li>
+                        <li><a href="#">Sistemas web</a></li>
+                        <li><a href="#">Apps móviles</a></li>
+                        <li><a href="#">E-commerce</a></li>
+                        <li><a href="#">Automatización</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Empresa</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Sobre nosotros</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Carreras</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contacto</a></li>
+                <div class="col-lg-2 col-6">
+                    <h5>Empresa</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2">
-                    <h6 class="text-white fw-bold mb-4">Legal</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Privacidad</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Términos</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Cookies</a></li>
+                <div class="col-lg-3">
+                    <h5>Soporte</h5>
+                    <ul class="list-unstyled lh-lg">
+                        <li><a href="#">Mantenimiento</a></li>
+                        <li><a href="#contacto">Asesoría inicial</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li class="mt-3 text-white-50"><small>keeeycode@gmail.com</small></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-5 border-secondary">
-            <div class="text-center text-muted">
-                <small>&copy; 2026 Keeycode. Todos los derechos reservados.</small>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="text-center">
+                <small class="text-muted">&copy; 2026 Keeycode. Todos los derechos reservados. San Salvador, El Salvador.</small>
             </div>
         </div>
     </footer>
@@ -449,25 +616,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Cambiar transparencia del navbar al hacer scroll
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                nav.style.padding = '0.5rem 0';
-                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+                nav.style.padding = '0.6rem 0';
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
             } else {
-                nav.style.padding = '1rem 0';
-                nav.style.background = 'rgba(15, 23, 42, 0.9)';
+                nav.style.padding = '0.8rem 0';
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
             }
         });
 
-        // Smooth scroll para links internos
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     </script>
