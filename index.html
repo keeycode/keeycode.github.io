@@ -259,6 +259,18 @@
             border-radius: 12px;
         }
 
+        .form-control.input-error,
+        .form-select.input-error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.18) !important;
+        }
+
+        .form-control.input-success,
+        .form-select.input-success {
+            border-color: #22c55e !important;
+            box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.14) !important;
+        }
+
         /* FIX: Select Arrow Issue */
         .form-select {
             appearance: none;
@@ -669,7 +681,6 @@
                                 name="nombre_negocio" 
                                 class="form-control" 
                                 placeholder="Nombre de tu empresa"
-                                required
                             >
                         </div>
                     
@@ -691,7 +702,6 @@
                                 name="whatsapp" 
                                 class="form-control" 
                                 placeholder="+503 0000 0000"
-                                required
                             >
                         </div>
                     
@@ -877,14 +887,26 @@
         contactForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
+            const errores = validarFormularioContacto();
+
+            if (errores.length > 0) {
+                showCustomAlert(
+                    "error",
+                    "Revisa el formulario",
+                    errores[0]
+                );
+
+                return;
+            }
+
             const textoOriginal = btnEnviar.textContent;
 
             btnEnviar.disabled = true;
             btnEnviar.textContent = "Enviando solicitud...";
 
             emailjs.sendForm(
-                "service_hwmld54",
-                "template_r2zntzm",
+                "TU_SERVICE_ID",
+                "TU_TEMPLATE_ID",
                 contactForm
             )
             .then(function () {
@@ -893,10 +915,16 @@
                     "Solicitud enviada",
                     "Gracias por contactarnos. Pronto nos comunicaremos contigo."
                 );
+
                 contactForm.reset();
+
+                contactForm
+                    .querySelectorAll(".input-error, .input-success")
+                    .forEach(campo => campo.classList.remove("input-error", "input-success"));
             })
             .catch(function (error) {
                 console.error("Error al enviar el correo:", error);
+
                 showCustomAlert(
                     "error",
                     "No se pudo enviar",
@@ -908,6 +936,72 @@
                 btnEnviar.textContent = textoOriginal;
             });
         });
+
+        function limpiarEstadoCampo(campo) {
+            campo.classList.remove("input-error", "input-success");
+        }
+
+        function marcarCampoError(campo) {
+            campo.classList.remove("input-success");
+            campo.classList.add("input-error");
+        }
+
+        function marcarCampoValido(campo) {
+            campo.classList.remove("input-error");
+            campo.classList.add("input-success");
+        }
+
+        function esCorreoValido(correo) {
+            const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regexCorreo.test(correo);
+        }
+
+        function validarFormularioContacto() {
+            const nombre = contactForm.elements["nombre_completo"];
+            const correo = contactForm.elements["correo"];
+            const necesidad = contactForm.elements["necesidad"];
+            const descripcion = contactForm.elements["descripcion"];
+
+            let errores = [];
+
+            [nombre, correo, necesidad, descripcion].forEach(limpiarEstadoCampo);
+
+            if (!nombre.value.trim()) {
+                errores.push("El nombre completo es obligatorio.");
+                marcarCampoError(nombre);
+            } else {
+                marcarCampoValido(nombre);
+            }
+
+            if (!correo.value.trim()) {
+                errores.push("El correo electrónico es obligatorio.");
+                marcarCampoError(correo);
+            } else if (!esCorreoValido(correo.value.trim())) {
+                errores.push("Ingresa un correo electrónico válido.");
+                marcarCampoError(correo);
+            } else {
+                marcarCampoValido(correo);
+            }
+
+            if (!necesidad.value.trim()) {
+                errores.push("Selecciona el servicio que necesitas desarrollar.");
+                marcarCampoError(necesidad);
+            } else {
+                marcarCampoValido(necesidad);
+            }
+
+            if (!descripcion.value.trim()) {
+                errores.push("La descripción del proyecto es obligatoria.");
+                marcarCampoError(descripcion);
+            } else if (descripcion.value.trim().length < 10) {
+                errores.push("La descripción debe tener al menos 10 caracteres.");
+                marcarCampoError(descripcion);
+            } else {
+                marcarCampoValido(descripcion);
+            }
+
+            return errores;
+        }
     </script>
 </body>
 </html>
