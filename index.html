@@ -278,6 +278,119 @@
             color: rgba(148, 163, 184, 0.8) !important;
         }
 
+        /* Alert */
+        .custom-alert {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: min(420px, calc(100% - 32px));
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #111827, #172033);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            border-left: 5px solid #3b82f6;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            color: #ffffff;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-16px);
+            transition: all 0.35s ease;
+        }
+
+        .custom-alert.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .custom-alert-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 50%;
+            background: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: #ffffff;
+            box-shadow: 0 8px 22px rgba(59, 130, 246, 0.45);
+        }
+
+        .custom-alert-content h6 {
+            margin: 0 0 4px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .custom-alert-content p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.45;
+            color: #cbd5e1;
+        }
+
+        .custom-alert-close {
+            margin-left: auto;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .custom-alert-close:hover {
+            color: #ffffff;
+        }
+
+        /* Variante de éxito */
+        .custom-alert.success {
+            border-left-color: #22c55e;
+        }
+
+        .custom-alert.success .custom-alert-icon {
+            background: #22c55e;
+            box-shadow: 0 8px 22px rgba(34, 197, 94, 0.35);
+        }
+
+        /* Variante de error */
+        .custom-alert.error {
+            border-left-color: #ef4444;
+        }
+
+        .custom-alert.error .custom-alert-icon {
+            background: #ef4444;
+            box-shadow: 0 8px 22px rgba(239, 68, 68, 0.35);
+        }
+
+        /* Variante informativa */
+        .custom-alert.info {
+            border-left-color: #3b82f6;
+        }
+
+        .custom-alert.info .custom-alert-icon {
+            background: #3b82f6;
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .custom-alert {
+                top: 16px;
+                right: 16px;
+                left: 16px;
+                width: auto;
+                padding: 16px;
+            }
+        }
+
         /* Footer */
         footer {
             background: #0f172a;
@@ -537,43 +650,81 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <form class="row g-3">
+                    <form id="contactForm" class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label-custom">Nombre completo</label>
-                            <input type="text" class="form-control" placeholder="Tu nombre">
+                            <input 
+                                type="text" 
+                                name="nombre_completo" 
+                                class="form-control" 
+                                placeholder="Tu nombre"
+                                required
+                            >
                         </div>
+                    
                         <div class="col-md-6">
                             <label class="form-label-custom">Nombre del negocio</label>
-                            <input type="text" class="form-control" placeholder="Nombre de tu empresa">
+                            <input 
+                                type="text" 
+                                name="nombre_negocio" 
+                                class="form-control" 
+                                placeholder="Nombre de tu empresa"
+                                required
+                            >
                         </div>
+                    
                         <div class="col-md-6">
                             <label class="form-label-custom">Correo electrónico</label>
-                            <input type="email" class="form-control" placeholder="ejemplo@correo.com">
+                            <input 
+                                type="email" 
+                                name="correo" 
+                                class="form-control" 
+                                placeholder="ejemplo@correo.com"
+                                required
+                            >
                         </div>
+                    
                         <div class="col-md-6">
                             <label class="form-label-custom">WhatsApp</label>
-                            <input type="tel" class="form-control" placeholder="+503 0000 0000">
+                            <input 
+                                type="tel" 
+                                name="whatsapp" 
+                                class="form-control" 
+                                placeholder="+503 0000 0000"
+                                required
+                            >
                         </div>
+                    
                         <div class="col-12">
                             <label class="form-label-custom">¿Qué necesitas desarrollar?</label>
-                            <select class="form-select">
+                            <select name="necesidad" class="form-select" required>
                                 <option selected disabled value="">Selecciona una opción</option>
-                                <option>Página web o landing page</option>
-                                <option>Sistema web</option>
-                                <option>Tienda en línea</option>
-                                <option>App móvil</option>
-                                <option>Automatización de procesos</option>
-                                <option>Dashboard o reportes</option>
-                                <option>Mantenimiento o soporte</option>
-                                <option>No estoy seguro, necesito asesoría</option>
+                                <option value="Página web o landing page">Página web o landing page</option>
+                                <option value="Sistema web">Sistema web</option>
+                                <option value="Tienda en línea">Tienda en línea</option>
+                                <option value="App móvil">App móvil</option>
+                                <option value="Automatización de procesos">Automatización de procesos</option>
+                                <option value="Dashboard o reportes">Dashboard o reportes</option>
+                                <option value="Mantenimiento o soporte">Mantenimiento o soporte</option>
+                                <option value="No estoy seguro, necesito asesoría">No estoy seguro, necesito asesoría</option>
                             </select>
                         </div>
+                    
                         <div class="col-12">
                             <label class="form-label-custom">Cuéntanos brevemente tu idea</label>
-                            <textarea class="form-control" rows="3" placeholder="Descripción de tu proyecto..."></textarea>
+                            <textarea 
+                                name="descripcion" 
+                                class="form-control" 
+                                rows="3" 
+                                placeholder="Descripción de tu proyecto..."
+                                required
+                            ></textarea>
                         </div>
+                    
                         <div class="col-12 mt-4">
-                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Solicitar asesoría gratuita</button>
+                            <button type="submit" id="btnEnviar" class="btn btn-primary w-100 py-3 fw-bold">
+                                Solicitar asesoría gratuita
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -629,8 +780,28 @@
         </div>
     </footer>
 
+    <div id="customAlert" class="custom-alert">
+        <div class="custom-alert-icon" id="customAlertIcon">
+            ✓
+        </div>
+    
+        <div class="custom-alert-content">
+            <h6 id="customAlertTitle">Solicitud enviada</h6>
+            <p id="customAlertMessage">
+                Tu mensaje fue enviado correctamente.
+            </p>
+        </div>
+    
+        <button type="button" class="custom-alert-close" onclick="hideCustomAlert()">
+            ×
+        </button>
+    </div>
+
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Email JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
     <script>
         // Navbar scroll effect
@@ -653,6 +824,88 @@
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
+            });
+        });
+
+        // Custom alert
+        let customAlertTimeout;
+
+        function showCustomAlert(type, title, message) {
+            const alertBox = document.getElementById("customAlert");
+            const alertIcon = document.getElementById("customAlertIcon");
+            const alertTitle = document.getElementById("customAlertTitle");
+            const alertMessage = document.getElementById("customAlertMessage");
+
+            clearTimeout(customAlertTimeout);
+
+            alertBox.className = "custom-alert";
+            alertBox.classList.add(type);
+
+            alertTitle.textContent = title;
+            alertMessage.textContent = message;
+
+            if (type === "success") {
+                alertIcon.textContent = "✓";
+            } else if (type === "error") {
+                alertIcon.textContent = "!";
+            } else {
+                alertIcon.textContent = "i";
+            }
+
+            setTimeout(() => {
+                alertBox.classList.add("show");
+            }, 50);
+
+            customAlertTimeout = setTimeout(() => {
+                hideCustomAlert();
+            }, 4500);
+        }
+
+        function hideCustomAlert() {
+            const alertBox = document.getElementById("customAlert");
+            alertBox.classList.remove("show");
+        }
+
+        // EmailJS - Envío de formulario
+        emailjs.init({
+            publicKey: "sn9hABtKnXFqE485C"
+        });
+
+        const contactForm = document.getElementById("contactForm");
+        const btnEnviar = document.getElementById("btnEnviar");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const textoOriginal = btnEnviar.textContent;
+
+            btnEnviar.disabled = true;
+            btnEnviar.textContent = "Enviando solicitud...";
+
+            emailjs.sendForm(
+                "service_hwmld54",
+                "template_r2zntzm",
+                contactForm
+            )
+            .then(function () {
+                showCustomAlert(
+                    "success",
+                    "Solicitud enviada",
+                    "Gracias por contactarnos. Pronto nos comunicaremos contigo."
+                );
+                contactForm.reset();
+            })
+            .catch(function (error) {
+                console.error("Error al enviar el correo:", error);
+                showCustomAlert(
+                    "error",
+                    "No se pudo enviar",
+                    "Ocurrió un problema al enviar tu solicitud. Intenta nuevamente."
+                );
+            })
+            .finally(function () {
+                btnEnviar.disabled = false;
+                btnEnviar.textContent = textoOriginal;
             });
         });
     </script>
