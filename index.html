@@ -281,7 +281,7 @@
         /* Alert */
         .custom-alert {
             position: fixed;
-            top: 24px;
+            bottom: 24px;
             right: 24px;
             z-index: 9999;
             width: min(420px, calc(100% - 32px));
@@ -297,7 +297,7 @@
             color: #ffffff;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-16px);
+            transform: translateY(16px);
             transition: all 0.35s ease;
         }
 
@@ -383,7 +383,7 @@
         /* Responsive */
         @media (max-width: 576px) {
             .custom-alert {
-                top: 16px;
+                bottom: 16px;
                 right: 16px;
                 left: 16px;
                 width: auto;
